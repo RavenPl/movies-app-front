@@ -1,0 +1,12 @@
+.info-button {
+    border-radius: 25px;
+    border: 1px solid white;
+    color: white;
+    background-color: #423F71;
+}
+
+.info_button_container {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
