@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {FormEvent, useEffect, useState} from 'react';
 
 import {Spinner} from "../components/comon/Spinner/Spinner";
 import {DataErrors} from "../interfaces";
@@ -21,7 +21,7 @@ export const RegisterForm = () => {
         setErrorDisplay("block");
     }, [error])
 
-    const formHandler = async (e: any) => {
+    const formHandler = async (e: FormEvent) => {
         e.preventDefault();
         setLoading(true);
         try {
