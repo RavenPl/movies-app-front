@@ -7,7 +7,7 @@
     left: 50%;
     border-width: 3px 2px 3px 2px;
     border-style: solid dotted solid dotted;
-    border-color: #de3500 rgba(255, 255, 255, 0.3) #fff rgba(151, 107, 93, 0.3);
+    border-color: var(--primary) var(--third) var(--primary) var(--secondary);
     border-radius: 50%;
     box-sizing: border-box;
     animation: 1s rotate linear infinite;
