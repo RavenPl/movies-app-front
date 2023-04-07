@@ -1,4 +1,4 @@
-import {Movie} from "../../../interfaces";
+import {Movie} from "../../interfaces";
 import "./MovieCard.css";
 
 interface Props {

@@ -3,8 +3,8 @@ import {MdAddCircleOutline} from "react-icons/md";
 import {FaHeart, FaRegHeart} from "react-icons/fa"
 
 import {movieDetails} from "../../utils/api";
-import {MovieDetails} from "../../../interfaces";
-import {InfoButton} from "../comon/InfoButton";
+import {MovieDetails} from "../../interfaces";
+import {InfoButton} from "../comon/InfoButton/InfoButton";
 import './MovieCardDetails.css'
 
 interface Props {
