@@ -1,4 +1,4 @@
-export interface DataErrors {
+export interface DataError {
     code: number;
     message: string;
 }
