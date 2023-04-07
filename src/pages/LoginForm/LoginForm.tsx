@@ -1,15 +1,15 @@
-import {FormEvent, useEffect, useState} from 'react';
+import {FormEvent, useContext, useEffect, useState} from 'react';
 import {Navigate} from "react-router-dom";
 
 import {DataError} from "../../interfaces";
 import {FormValidationErrorMessage} from "../../components/comon/FormValidationErrorMessage";
 import {Spinner} from "../../components/comon/Spinner/Spinner";
+import {GlobalContext} from "../../contexts/GlobalContext";
 
 export const LoginForm = () => {
 
     const [error, setError] = useState<null | DataError>(null);
-    const [isLogged, setIsLogged] = useState<boolean>(false);
-
+    const {isLogged, setIsLogged} = useContext(GlobalContext);
     const [loading, setLoading] = useState<boolean>(false);
     const [errorDisplay, setErrorDisplay] = useState<string>("");
 
