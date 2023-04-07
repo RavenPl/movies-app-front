@@ -1,14 +1,14 @@
-import React, {FormEvent, useEffect, useState} from 'react';
-
-import {Spinner} from "../components/comon/Spinner/Spinner";
-import {DataErrors} from "../interfaces";
-import {ErrorMessage} from "../components/comon/InputError";
-import "./RegisterForm.css";
+import {FormEvent, useEffect, useState} from 'react';
 import {Navigate} from 'react-router-dom';
+
+import {Spinner} from "../../components/comon/Spinner/Spinner";
+import {DataError} from "../../interfaces";
+import {FormValidationErrorMessage} from "../../components/comon/FormValidationErrorMessage";
+import "./RegisterForm.css";
 
 export const RegisterForm = () => {
 
-    const [error, setError] = useState<null | DataErrors>(null);
+    const [error, setError] = useState<null | DataError>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [errorDisplay, setErrorDisplay] = useState<string>("");
     const [isRegister, setIsRegister] = useState<boolean>(false);
@@ -34,17 +34,19 @@ export const RegisterForm = () => {
             });
             const data = await resp.json();
 
-            const error: DataErrors = {
+            const error: DataError = {
                 code: resp.status,
                 message: data.message,
-            }
+            };
 
             if ([400, 500].includes(resp.status)) {
                 setError(error);
                 return;
             }
             setIsRegister(true);
-        } finally {
+        } catch (e: any) {
+            console.log(e.message);
+            setError({code: 500, message: e.message});
             setLoading(false);
         }
     }
@@ -58,7 +60,7 @@ export const RegisterForm = () => {
             ...form,
             [key]: value
         }));
-    }
+    };
 
     if (loading) {
         return <Spinner/>
@@ -66,10 +68,9 @@ export const RegisterForm = () => {
 
     return (
         <div className="form_container">
-
             <form method="POST" onSubmit={formHandler} className="form_wrapper">
                 <h3>Register!</h3>
-                {error && <ErrorMessage message={error.message} display={errorDisplay}/>}
+                {error && <FormValidationErrorMessage message={error.message} display={errorDisplay}/>}
                 <label>
                     <span>Email</span>
                     <input
@@ -81,7 +82,7 @@ export const RegisterForm = () => {
                     />
                 </label>
 
-                <label htmlFor="">
+                <label>
                     <span>Password</span>
                     <input
                         type="password"
@@ -93,7 +94,6 @@ export const RegisterForm = () => {
                 </label>
                 <button>Submit</button>
             </form>
-
         </div>
     );
 }
