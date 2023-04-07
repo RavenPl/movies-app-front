@@ -1,5 +1,6 @@
 interface Props {
     message: string;
+    style?: {};
 }
 
 export const ErrorInfo = (props: Props) => {

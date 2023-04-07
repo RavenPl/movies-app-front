@@ -1,0 +1,8 @@
+.modified {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 30px;
+}

@@ -7,6 +7,7 @@ import {GlobalProvider} from "./contexts/GlobalContext";
 import {LoginForm} from "./pages/LoginForm/LoginForm";
 import './index.css';
 import {Test} from "./pages/Test";
+import {Logout} from "./components/Logout/Logout";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(
             {/*<Route path="/movies" element={<RootLayout/>}/>*/}
             <Route path="/movies/register" element={<RegisterForm/>}/>
             <Route path="/movies/login" element={<LoginForm/>}/>
+            <Route path="/movies/logout" element={<Logout/>}/>
             <Route path="/movies/test" element={<Test/>}/>
 
         </Route>
