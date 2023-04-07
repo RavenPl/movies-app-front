@@ -50,9 +50,11 @@ export const LoginForm = () => {
 
             if ([400, 401, 500].includes(resp.status)) {
                 setError(error);
+                setLoading(false);
                 return;
             }
             setIsLogged(true);
+            setLoading(false);
 
         } catch (e: any) {
             console.log(e.message);

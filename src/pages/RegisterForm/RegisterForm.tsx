@@ -41,9 +41,12 @@ export const RegisterForm = () => {
 
             if ([400, 500].includes(resp.status)) {
                 setError(error);
+                setLoading(false);
                 return;
             }
             setIsRegister(true);
+            setLoading(false);
+
         } catch (e: any) {
             console.log(e.message);
             setError({code: 500, message: e.message});
