@@ -1,0 +1,49 @@
+header nav {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #423F71;
+    padding: 15px;
+}
+
+header nav a:first-child {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+header form {
+    position: relative;
+    flex-basis: 25%;
+}
+
+.header_form_span {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    height: 20px;
+}
+
+header nav input {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    background-color: transparent;
+}
+
+header nav a {
+    text-decoration: none;
+    padding: 5px;
+}
+
+header nav a:hover {
+    background-color: white;
+    color: #423F71;
+    border-radius: 10px;
+    text-decoration: none;
+}
