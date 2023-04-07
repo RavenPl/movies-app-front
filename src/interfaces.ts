@@ -1,3 +1,8 @@
+export interface DataErrors {
+    code: number;
+    message: string;
+}
+
 export interface Movie {
     imdbID: string;
     Title: string;
