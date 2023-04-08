@@ -58,7 +58,7 @@ export const LoginForm = () => {
 
         } catch (e: any) {
             console.log(e.message);
-            setError({code: 500, message: e.message});
+            setError({code: 500, message: "Sorry, try again later!"});
             setLoading(false);
         }
     }
