@@ -8,20 +8,27 @@ import {LoginForm} from "./pages/LoginForm/LoginForm";
 import './index.css';
 import {Test} from "./pages/Test";
 import {Logout} from "./components/Logout/Logout";
+import {NotFoundView} from "./pages/NotFoundView/NotFoundView";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/movies" element={<RootLayout/>}>
+        <>
+            <Route path="/movies" element={<RootLayout/>}>
 
-            {/*<Route path="/movies" element={<RootLayout/>}/>*/}
-            <Route path="/movies/register" element={<RegisterForm/>}/>
-            <Route path="/movies/login" element={<LoginForm/>}/>
-            <Route path="/movies/logout" element={<Logout/>}/>
-            <Route path="/movies/test" element={<Test/>}/>
+                {/*<Route path="/movies" element={<RootLayout/>}/>*/}
+                <Route path="/movies/register" element={<RegisterForm/>}/>
+                <Route path="/movies/login" element={<LoginForm/>}/>
+                <Route path="/movies/logout" element={<Logout/>}/>
+                <Route path="/movies/test" element={<Test/>}/>
 
-        </Route>
+
+            </Route>
+            <Route path="*" element={<NotFoundView/>}/>
+
+        </>
     )
-);
+    )
+;
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
