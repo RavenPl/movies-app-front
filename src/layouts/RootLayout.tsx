@@ -22,6 +22,7 @@ export const RootLayout = () => {
     useEffect(() => {
         (async () => {
             setLoading(true);
+            setError(null);
             try {
                 const resp = await fetch(`http://localhost:3001/movies/auth/test`, {
                     credentials: "include",
@@ -42,11 +43,11 @@ export const RootLayout = () => {
 
             } catch (e: any) {
                 console.log(e.message);
-                setError({code: 500, message: e.message});
+                setError({code: 500, message: "Sorry, try again later!"});
                 setLoading(false);
             }
         })()
-    }, [])
+    }, [isLogged])
 
     if (loading) {
         return <Spinner/>

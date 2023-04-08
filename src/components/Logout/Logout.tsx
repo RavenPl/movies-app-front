@@ -8,7 +8,7 @@ import "./Logout.css"
 
 export const Logout = () => {
 
-    const {isLogged, setIsLogged} = useContext(GlobalContext);
+    const {isLogged, setIsLogged, setMovie} = useContext(GlobalContext);
     const [error, setError] = useState<null | DataError>(null);
 
 
@@ -21,6 +21,7 @@ export const Logout = () => {
                 });
                 const data = await resp.json();
                 setIsLogged(false);
+                setMovie([]);
 
                 if ([400, 401, 500].includes(resp.status)) {
                     setError({

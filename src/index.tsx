@@ -9,6 +9,7 @@ import './index.css';
 import {Test} from "./pages/Test";
 import {Logout} from "./components/Logout/Logout";
 import {NotFoundView} from "./pages/NotFoundView/NotFoundView";
+import {DeleteUser} from "./pages/DeleteUser";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,7 +21,7 @@ const router = createBrowserRouter(
                 <Route path="/movies/login" element={<LoginForm/>}/>
                 <Route path="/movies/logout" element={<Logout/>}/>
                 <Route path="/movies/test" element={<Test/>}/>
-
+                <Route path="/movies/delete" element={<DeleteUser/>}/>
 
             </Route>
             <Route path="*" element={<NotFoundView/>}/>
