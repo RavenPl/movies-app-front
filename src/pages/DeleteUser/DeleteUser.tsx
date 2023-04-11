@@ -1,20 +1,20 @@
 import React, {useContext, useState} from 'react';
 import {Navigate} from "react-router-dom";
 
-import {GlobalContext} from "../../../contexts/GlobalContext";
+import {GlobalContext} from "../../contexts/GlobalContext";
 import {DeleteUserInfo} from "./DeleteUserInfo/DeleteUserInfo";
-import {Spinner} from "../Spinner/Spinner";
-import {ErrorInfo} from "../ErrorInfo";
-import {DataError} from "../../../interfaces";
+import {Spinner} from "../../components/common/Spinner/Spinner";
+import {ErrorInfo} from "../../components/common/ErrorInfo";
+import {DataError} from "../../interfaces";
 
 export const DeleteUser = () => {
 
-        const {setIsLogged, setMovies} = useContext(GlobalContext);
-        const [error, setError] = useState<null | DataError>(null);
-        const [confirmed, setConfirmed] = useState<boolean | null>(null);
-        const [loading, setLoading] = useState<boolean>(false);
+    const {setIsLogged, setMovies} = useContext(GlobalContext);
+    const [error, setError] = useState<null | DataError>(null);
+    const [confirmed, setConfirmed] = useState<boolean | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
 
-        const deleteUser = async () => {
+    const deleteUser = async () => {
 
             try {
                 setLoading(true);
