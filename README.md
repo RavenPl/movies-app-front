@@ -2,7 +2,7 @@
   <h1>Movies App [FE]</h1>
   
 # :video_game: View Demo</a> 
-###  :link: <a href="https://github.com/RavenPl/movies-app-back.git"> Backend repository</a> 
+###  :link: <a href="https://github.com/RavenPl/movies-app-back.git"> Backend repository</a>  
 </div>  
 <!-- Table of Contents -->  
 
