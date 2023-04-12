@@ -2,8 +2,8 @@ import {FormEvent, useEffect, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 
 import {Spinner} from "../../components/common/Spinner/Spinner";
-import {DataError} from "../../interfaces";
 import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
+import {DataError} from "../../interfaces";
 import "./RegisterForm.css";
 
 export const RegisterForm = () => {
@@ -18,7 +18,6 @@ export const RegisterForm = () => {
     });
 
     useEffect(() => {
-        console.log("register", error);
         setErrorDisplay("block");
     }, [error])
 

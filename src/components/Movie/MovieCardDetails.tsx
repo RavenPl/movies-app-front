@@ -5,8 +5,8 @@ import {FaHeart, FaRegHeart} from "react-icons/fa"
 import {movieDetails} from "../../utils/constants";
 import {MovieDetails} from "../../interfaces";
 import {InfoButton} from "../common/InfoButton/InfoButton";
-import './MovieCardDetails.css'
 import {GlobalContext} from "../../contexts/GlobalContext";
+import './MovieCardDetails.css'
 
 interface Props {
     selectedMovie: string;
@@ -30,7 +30,6 @@ export const MovieCardDetails = (props: Props) => {
 
     const isFavourite = async () => {
         const found = bookmarks.some(obj => obj.movieId === selectedMovie);
-        console.log(found, "jest!");
         setFavourite(found);
     }
 
@@ -66,7 +65,6 @@ export const MovieCardDetails = (props: Props) => {
                 })
             });
         }
-
     }
 
     useEffect(() => {
@@ -79,7 +77,7 @@ export const MovieCardDetails = (props: Props) => {
         movie && <div className="movie_details_container">
 
             <div className="movie_details_image">
-                <img src={movie.Poster}/>
+                <img src={movie.Poster} alt="movie_image"/>
             </div>
 
             <div className="movie_details_info_box">

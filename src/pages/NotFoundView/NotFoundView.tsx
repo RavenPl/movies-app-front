@@ -1,5 +1,6 @@
-import "./NotFoundView.css"
 import {Link} from "react-router-dom";
+
+import "./NotFoundView.css"
 
 export const NotFoundView = () => {
     return (

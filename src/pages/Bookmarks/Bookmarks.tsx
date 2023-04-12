@@ -1,8 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
+
+import {SingleBookmark} from "./SingleBookmark/SingleBookmark";
 import {GlobalContext} from "../../contexts/GlobalContext";
 import {movieDetails} from "../../utils/constants";
 import {MovieDetails} from "../../interfaces";
-import {SingleBookmark} from "./SingleBookmark/SingleBookmark";
 
 export const Bookmarks = () => {
 
@@ -16,12 +17,10 @@ export const Bookmarks = () => {
         const data = await resp.json();
         console.log(data.bookmarks);
         setBookmarks([...data.bookmarks]);
-
     }
 
     useEffect(() => {
         bookmarkRefresh()
-        console.log('bookamrk init!')
 
         bookmarks.forEach(async (obj) => {
             const resp = await fetch(movieDetails + obj.movieId);

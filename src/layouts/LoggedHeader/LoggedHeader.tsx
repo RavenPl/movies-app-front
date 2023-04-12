@@ -1,4 +1,5 @@
 import {NavLink} from "react-router-dom";
+
 import {SearchBox} from "../../components/SearchBox";
 
 export const LoggedHeader = () => {

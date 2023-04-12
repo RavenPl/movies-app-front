@@ -8,7 +8,6 @@ interface Props {
 
 export const MovieCard = ({movie, onMovieSelect}: Props) => {
 
-
     return <>
         {
             movie.Poster !== "N/A" &&

@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {MdSearch} from "react-icons/md";
+
 import {movieSearch} from "../utils/constants";
 import {GlobalContext} from "../contexts/GlobalContext";
 

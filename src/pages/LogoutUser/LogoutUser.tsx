@@ -11,7 +11,6 @@ export const LogoutUser = () => {
 
     const {isLogged, setIsLogged, setMovies} = useContext(GlobalContext);
     const [error, setError] = useState<null | DataError>(null);
-    const [confirmed, setConfirmed] = useState<boolean | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     const logoutUser = async () => {

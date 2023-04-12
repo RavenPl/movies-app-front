@@ -20,7 +20,6 @@ export const LoginForm = () => {
 
     useEffect(() => {
 
-        console.log('wchodze na login?', error);
         setErrorDisplay("block");
     }, [error])
 
@@ -47,7 +46,6 @@ export const LoginForm = () => {
             const data = await resp.json();
             const {favouriteMovies} = data;
 
-            console.log(favouriteMovies, 'filmy na FE!');
             if ([400, 401, 500].includes(resp.status)) {
                 console.log('jjj');
                 setError(prev => ({
@@ -78,7 +76,6 @@ export const LoginForm = () => {
     }
 
     return (<>
-
             <div className="form_container">
                 <form method="POST" onSubmit={formHandler} className="form_wrapper">
                     <h3>Login!</h3>
@@ -107,6 +104,5 @@ export const LoginForm = () => {
                 </form>
             </div>
         </>
-
     );
 };

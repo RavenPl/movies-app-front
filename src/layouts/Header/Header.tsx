@@ -1,5 +1,6 @@
-import {SearchBox} from "../../components/SearchBox";
 import {NavLink} from "react-router-dom";
+
+import {SearchBox} from "../../components/SearchBox";
 import "./Header.css";
 
 export const Header = () => {
