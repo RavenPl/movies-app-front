@@ -69,8 +69,11 @@
 # :dart: Features
 
 - search for movies, series or games :heavy_check_mark:
+ <img src="./src/utils/images/2.jpg"/>
 - adding them to your favourite list :heavy_check_mark:
+ <img src="./src/utils/images/3.jpg"/>
 - removing from the bookmark list :heavy_check_mark:
+ <img src="./src/utils/images/4.jpg"/>
 - create your own account :heavy_check_mark:
 - delete your account :heavy_check_mark:
 
