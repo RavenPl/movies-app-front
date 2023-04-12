@@ -1,46 +1,169 @@
-# Getting Started with Create React App
+<div align="center">  
+  <h1>Movies App [FE]</h1>
+  
+# :video_game: View Demo</a> 
+###  :link: <a href="https://github.com/RavenPl/movies-app-back.git"> Backend repository</a> 
+</div>  
+<!-- Table of Contents -->  
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
+<br/>
 
-## Available Scripts
+# :notebook_with_decorative_cover: Table of Contents
 
-In the project directory, you can run:
+- [About the Project](#star2-about-the-project)
+    * [Tech Stack](#space_invader-tech-stack)
+    * [Features](#dart-features)
+    * [Environment Variables](#key-environment-variables)
+- [Getting Started](#toolbox-getting-started)
+    * [Prerequisites](#heavy_exclamation_mark-prerequisites)
+    * [Run Locally](#running-run-locally)
+- [Usage](#eyes-usage)
+- [Bugs](#hammer_and_wrench-project-status)
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# :star2: About the Project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* you can search your favourties movies or games
+* it allows you to bookmark it and never forget
+* you can register and have your own account
 
-### `npm test`
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# :space_invader: Tech Stack [FE]
 
-### `npm run build`
+<details>  
+  <summary>Server</summary>  
+  <ul>  
+    <li>React</li>  
+    <li>TypeScript</li>
+  </ul>  
+</details>
+<details>  
+<summary>Database</summary>  
+  <ul>  
+    <li>MySQL</li>  
+  </ul>  
+</details>  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## All technologies used in project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p align="left">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> &nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> &nbsp;&nbsp;&nbsp;
+<img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="react" width="40" height="40"/> &nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> &nbsp; &nbsp;&nbsp;&nbsp;
+<img src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg" alt="jest" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/express/express.png" alt="express js" height="40"/> &nbsp; &nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> &nbsp; &nbsp;&nbsp;
+<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
+<img src="https://www.vectorlogo.zone/logos/npmjs/npmjs-ar21.svg" alt="npm" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
+ <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> &nbsp; &nbsp;
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> &nbsp;&nbsp;
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br/>
+<!-- Features -->  
 
-### `npm run eject`
+# :dart: Features
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- search for movies, series or games :heavy_check_mark:
+ <img src="./src/utils/images/2.jpg"/>
+- adding them to your favourite list :heavy_check_mark:
+ <img src="./src/utils/images/3.jpg"/>
+- removing from the bookmark list :heavy_check_mark:
+ <img src="./src/utils/images/4.jpg"/>
+- create your own account :heavy_check_mark:
+ <img src="./src/utils/images/1.jpg"/>
+- delete your account :heavy_check_mark:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# :toolbox: Getting Started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### :key: Environment Variables
 
-## Learn More
+In order to run this app you need to create config.ts and place it in config folder. File should contain following
+fields with your correct data, for instance:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```json  
+const config = {  
+    dbHost: 'localhost',  
+    dbUser: 'user',  
+    dbDatabase: 'databaseName',
+    dbPassword: "",
+    corsOrigin: 'http://localhost:3000',  
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- Prerequisites -->  
+
+### :heavy_exclamation_mark: Prerequisites
+
+This project uses npm as package manager
+
+```bash  
+ npm install --global npm  
+```  
+
+<br/>
+
+<!-- Run Locally -->  
+
+# :running: Run Locally
+
+Clone the project
+
+```bash  
+ git clone https://github.com/RavenPl/movies-app-front.git
+```  
+
+Go to the project directory
+
+```bash  
+ cd movies-app-back 
+```  
+
+Install dependencies
+
+```bash  
+ npm install  
+```  
+
+Start the server
+
+```bash  
+ npm start  
+```  
+<br/>
+<!-- Usage -->  
+
+# :eyes: Usage
+
+1. Make sure backend is listening and database is implemented correctly, also please check cors settings in express repository!
+
+2. You can test the app using test user:
+ 
+ ```
+ - email: test@test.com
+ - password: 12345678
+ ```
+ 
+<br/>
+
+# :deciduous_tree: Lessons Learned
+
+<p> :ballot_box_with_check: created authentication system using JWT
+<p> :ballot_box_with_check: putting together JavaScript, Typescript, mysql2 into one, working application</p>
+<p> :ballot_box_with_check: creating and running few test using Jest</p>
+<p> :ballot_box_with_check: adding basic security middlewares: express-rate-limit and helmet</p>
+<p> :ballot_box_with_check: fixing CORS problem</p>
+<p> :ballot_box_with_check: using one to many relation in real project and solving problems which come with it 
+
+<br/>
+
+# :hammer_and_wrench: Bugs
+  
+1. cant remove bookmark on bookmarks page 
+2. routes logic needs improvement
