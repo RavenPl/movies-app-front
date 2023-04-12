@@ -15,7 +15,6 @@ export const Bookmarks = () => {
             credentials: "include"
         });
         const data = await resp.json();
-        console.log(data.bookmarks);
         setBookmarks([...data.bookmarks]);
     }
 
