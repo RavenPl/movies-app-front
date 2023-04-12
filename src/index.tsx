@@ -1,3 +1,4 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 
@@ -5,21 +6,22 @@ import {RootLayout} from "./layouts/RootLayout";
 import {RegisterForm} from "./pages/RegisterForm/RegisterForm";
 import {GlobalProvider} from "./contexts/GlobalContext";
 import {LoginForm} from "./pages/LoginForm/LoginForm";
-import './index.css';
 import {Test} from "./pages/Test";
-import {Logout} from "./components/Logout/Logout";
+import {LogoutUser} from "./pages/LogoutUser/LogoutUser";
 import {NotFoundView} from "./pages/NotFoundView/NotFoundView";
-import {DeleteUser} from "./pages/DeleteUser";
+import {DeleteUser} from "./pages/DeleteUser/DeleteUser";
+import {Bookmarks} from "./pages/Bookmarks/Bookmarks";
+import './index.css';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
             <Route path="/movies" element={<RootLayout/>}>
 
-                {/*<Route path="/movies" element={<RootLayout/>}/>*/}
+                <Route path="/movies/bookmarks" element={<Bookmarks/>}/>
                 <Route path="/movies/register" element={<RegisterForm/>}/>
                 <Route path="/movies/login" element={<LoginForm/>}/>
-                <Route path="/movies/logout" element={<Logout/>}/>
+                <Route path="/movies/logout" element={<LogoutUser/>}/>
                 <Route path="/movies/test" element={<Test/>}/>
                 <Route path="/movies/delete" element={<DeleteUser/>}/>
 
@@ -39,6 +41,6 @@ root.render(
     <GlobalProvider>
         <RouterProvider router={router}/>
     </GlobalProvider>
-    // </React.StrictMode>
+    /*</React.StrictMode>*/
 )
 ;
