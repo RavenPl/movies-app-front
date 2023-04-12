@@ -75,6 +75,7 @@
 - removing from the bookmark list :heavy_check_mark:
  <img src="./src/utils/images/4.jpg"/>
 - create your own account :heavy_check_mark:
+ <img src="./src/utils/images/1.jpg"/>
 - delete your account :heavy_check_mark:
 
 <br/>
