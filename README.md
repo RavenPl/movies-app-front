@@ -31,23 +31,16 @@
 
 <br/>
 
-# :space_invader: Tech Stack
+# :space_invader: Tech Stack [BE]
 
 <details>  
   <summary>Server</summary>  
   <ul>  
-    <li>Express.js</li>  
+    <li>React</li>  
     <li>TypeScript</li>
   </ul>  
 </details>  
-<details>  
-<summary>Security</summary>  
-<ul>  
- <li>JWT</li>
-<li>Helmet</li> 
-<li>Express Rate Limit</li>
-</ul>  
-</details>  
+<details>   
 <details>  
 <summary>Database</summary>  
   <ul>  
@@ -55,7 +48,7 @@
   </ul>  
 </details>  
 
-## Technology used
+## All technologies used in project
 
 <p align="left">
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -67,6 +60,8 @@
 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> &nbsp; &nbsp;&nbsp;
 <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
 <img src="https://www.vectorlogo.zone/logos/npmjs/npmjs-ar21.svg" alt="npm" width="40" height="40"/>&nbsp;&nbsp;&nbsp;
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> &nbsp; &nbsp;
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> &nbsp;&nbsp;
 </p>
 
 <br/>
