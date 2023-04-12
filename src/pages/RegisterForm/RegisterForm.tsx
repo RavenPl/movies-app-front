@@ -1,9 +1,9 @@
 import {FormEvent, useEffect, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 
-import {Spinner} from "../../components/comon/Spinner/Spinner";
+import {Spinner} from "../../components/common/Spinner/Spinner";
 import {DataError} from "../../interfaces";
-import {FormValidationErrorMessage} from "../../components/comon/FormValidationErrorMessage";
+import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
 import "./RegisterForm.css";
 
 export const RegisterForm = () => {
@@ -18,12 +18,14 @@ export const RegisterForm = () => {
     });
 
     useEffect(() => {
+        console.log("register", error);
         setErrorDisplay("block");
     }, [error])
 
     const formHandler = async (e: FormEvent) => {
         e.preventDefault();
         setLoading(true);
+        setError(null);
         try {
             const resp = await fetch(`http://localhost:3001/movies/auth/register`, {
                 method: "POST",
