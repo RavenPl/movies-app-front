@@ -2,15 +2,16 @@ import React, {useContext, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 
 import {GlobalContext} from "../../contexts/GlobalContext";
-import {ErrorInfo} from "../../components/comon/ErrorInfo";
+import {ErrorInfo} from "../../components/common/ErrorInfo";
 import {LogoutUserInfo} from "./LogoutUserInfo";
-import {Spinner} from "../../components/comon/Spinner/Spinner";
+import {Spinner} from "../../components/common/Spinner/Spinner";
 import {DataError} from "../../interfaces";
 
 export const LogoutUser = () => {
 
-    const {isLogged, setIsLogged, setMovies, movies} = useContext(GlobalContext);
+    const {isLogged, setIsLogged, setMovies} = useContext(GlobalContext);
     const [error, setError] = useState<null | DataError>(null);
+    const [confirmed, setConfirmed] = useState<boolean | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     const logoutUser = async () => {
@@ -18,7 +19,7 @@ export const LogoutUser = () => {
         try {
             setError(null);
             setLoading(true);
-            const resp = await fetch(`http://localhost:3001/movies/auth/logout`, {
+            const resp = await fetch(`http://localhost:3001/movies/user/logout`, {
                 credentials: "include",
             });
             const data = await resp.json();
@@ -43,6 +44,7 @@ export const LogoutUser = () => {
     if (loading) {
         return <Spinner/>
     }
+
 
     if (!isLogged) {
         return <Navigate to="/movies"/>
