@@ -112,7 +112,7 @@ This project uses npm as package manager
 Clone the project
 
 ```bash  
- git clone https://github.com/RavenPl/movies-app-back.git
+ git clone https://github.com/RavenPl/movies-app-front.git
 ```  
 
 Go to the project directory
@@ -137,30 +137,9 @@ Start the server
 
 # :eyes: Usage
 
-1. Add your data into config file.
-2. Create table in your database using this SQL:
+1. Make sure backend is listening and database is implemented correctly, also please check cors settings in express repository!
 
- ```
- CREATE TABLE IF NOT EXISTS `movies` (
-  `id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT uuid(),
-  `movieId` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `isFavourite` int(1) NOT NULL DEFAULT 0,
-  `userId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_movies_users` (`userId`),
-  CONSTRAINT `FK_movies_users` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `currentTokenId` varchar(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
- ```
- 3. You can test the app using test user:
+2. You can test the app using test user:
  
  ```
  - email: test@test.com
