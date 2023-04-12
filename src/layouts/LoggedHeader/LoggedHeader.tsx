@@ -7,8 +7,8 @@ export const LoggedHeader = () => {
             <nav>
                 <NavLink to="/movies">Movies App</NavLink>
                 <NavLink to="#">My account</NavLink>
-                <NavLink to="/movies/login">Logout</NavLink>
-                <NavLink to="/movies/register">Delete</NavLink>
+                <NavLink to="/movies/logout">Logout</NavLink>
+                <NavLink to="/movies/delete">Delete</NavLink>
                 <SearchBox/>
             </nav>
         </header>

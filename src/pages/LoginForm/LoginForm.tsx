@@ -8,8 +8,8 @@ import {GlobalContext} from "../../contexts/GlobalContext";
 
 export const LoginForm = () => {
 
-    const [error, setError] = useState<null | DataError>(null);
     const {isLogged, setIsLogged} = useContext(GlobalContext);
+    const [error, setError] = useState<null | DataError>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [errorDisplay, setErrorDisplay] = useState<string>("");
 
@@ -19,6 +19,8 @@ export const LoginForm = () => {
     });
 
     useEffect(() => {
+
+        console.log('wchodze na login?', error);
         setErrorDisplay("block");
     }, [error])
 
@@ -43,13 +45,14 @@ export const LoginForm = () => {
             });
 
             const data = await resp.json();
-            const error: DataError = {
-                code: resp.status,
-                message: data.message,
-            };
 
             if ([400, 401, 500].includes(resp.status)) {
-                setError(error);
+                console.log('jjj');
+                setError(prev => ({
+                    ...prev,
+                    code: resp.status,
+                    message: data.message,
+                }));
                 setLoading(false);
                 return;
             }
@@ -58,7 +61,7 @@ export const LoginForm = () => {
 
         } catch (e: any) {
             console.log(e.message);
-            setError({code: 500, message: e.message});
+            setError(prev => ({...prev, code: 500, message: "Sorry, try again later!"}));
             setLoading(false);
         }
     }
