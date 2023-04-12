@@ -1,8 +1,8 @@
 <div align="center">  
-  <h1>Movies App [BE]</h1>
+  <h1>Movies App [FE]</h1>
   
 # :video_game: View Demo</a> 
-###  :link: <a href="https://github.com/RavenPl/movies-app-front.git"> Frontend repository</a> 
+###  :link: <a href="https://github.com/RavenPl/movies-app-back.git"> Backend repository</a> 
 </div>  
 <!-- Table of Contents -->  
 
@@ -31,23 +31,15 @@
 
 <br/>
 
-# :space_invader: Tech Stack [BE]
+# :space_invader: Tech Stack [FE]
 
 <details>  
   <summary>Server</summary>  
   <ul>  
-    <li>Express.js</li>  
+    <li>React</li>  
     <li>TypeScript</li>
   </ul>  
-</details>  
-<details>  
-<summary>Security</summary>  
-<ul>  
- <li>JWT</li>
-<li>Helmet</li> 
-<li>Express Rate Limit</li>
-</ul>  
-</details>  
+</details>
 <details>  
 <summary>Database</summary>  
   <ul>  
