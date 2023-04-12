@@ -25,3 +25,8 @@ export interface MovieDetails {
     imdbRating: string;
     imdbVotes: string;
 }
+
+export interface Bookmarks {
+    movieId: string;
+    isFavourite: boolean;
+}

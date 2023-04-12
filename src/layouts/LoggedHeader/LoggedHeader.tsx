@@ -6,7 +6,7 @@ export const LoggedHeader = () => {
         <header>
             <nav>
                 <NavLink to="/movies">Movies App</NavLink>
-                <NavLink to="#">My account</NavLink>
+                <NavLink to="/movies/bookmarks">My bookmarks</NavLink>
                 <NavLink to="/movies/logout">Logout</NavLink>
                 <NavLink to="/movies/delete">Delete</NavLink>
                 <SearchBox/>

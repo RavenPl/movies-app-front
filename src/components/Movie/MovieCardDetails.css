@@ -10,6 +10,12 @@
     border-bottom: 1px solid lightgray;
 }
 
+.bookmark {
+    margin: 10px auto;
+    width: 90%;
+    border: 1px solid lightgray;
+}
+
 .movie_details_image {
     border: 1px solid #ddd;
     border-radius: 4px;

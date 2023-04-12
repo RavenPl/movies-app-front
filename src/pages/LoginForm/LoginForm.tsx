@@ -1,14 +1,14 @@
 import {FormEvent, useContext, useEffect, useState} from 'react';
 import {Navigate} from "react-router-dom";
 
-import {DataError} from "../../interfaces";
-import {FormValidationErrorMessage} from "../../components/comon/FormValidationErrorMessage";
-import {Spinner} from "../../components/comon/Spinner/Spinner";
 import {GlobalContext} from "../../contexts/GlobalContext";
+import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
+import {Spinner} from "../../components/common/Spinner/Spinner";
+import {DataError} from "../../interfaces";
 
 export const LoginForm = () => {
 
-    const {isLogged, setIsLogged} = useContext(GlobalContext);
+    const {isLogged, setIsLogged, setBookmarks} = useContext(GlobalContext);
     const [error, setError] = useState<null | DataError>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [errorDisplay, setErrorDisplay] = useState<string>("");
@@ -45,7 +45,9 @@ export const LoginForm = () => {
             });
 
             const data = await resp.json();
+            const {favouriteMovies} = data;
 
+            console.log(favouriteMovies, 'filmy na FE!');
             if ([400, 401, 500].includes(resp.status)) {
                 console.log('jjj');
                 setError(prev => ({
@@ -56,6 +58,7 @@ export const LoginForm = () => {
                 setLoading(false);
                 return;
             }
+            setBookmarks([...favouriteMovies]);
             setIsLogged(true);
             setLoading(false);
 

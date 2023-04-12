@@ -1,6 +1,6 @@
 import {createContext, Dispatch, ReactNode, SetStateAction, useState} from "react";
-import {DataError, Movie} from "../interfaces";
-import {MovieEntity} from "types";
+
+import {Bookmarks, DataError, Movie} from "../interfaces";
 
 export interface GlobalContextInterface {
     movies: Movie[];
@@ -9,8 +9,8 @@ export interface GlobalContextInterface {
     setIsLogged: Dispatch<SetStateAction<boolean>>;
     error: DataError | null;
     setError: Dispatch<SetStateAction<DataError | null>>;
-    favouriteMovies: MovieEntity[];
-    setFavouriteMovies: Dispatch<SetStateAction<MovieEntity[]>>;
+    bookmarks: Bookmarks[];
+    setBookmarks: Dispatch<SetStateAction<Bookmarks[]>>;
 }
 
 const defaultState = {
@@ -23,8 +23,8 @@ const defaultState = {
     error: null,
     setError: () => {
     },
-    favouriteMovies: [],
-    setFavouriteMovies: () => {
+    bookmarks: [],
+    setBookmarks: () => {
     }
 } as GlobalContextInterface;
 
@@ -37,13 +37,13 @@ type GlobalProviderProps = {
 export const GlobalProvider = ({children}: GlobalProviderProps) => {
 
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [favouriteMovies, setFavouriteMovies] = useState<MovieEntity[]>([]);
+    const [bookmarks, setBookmarks] = useState<Bookmarks[]>([]);
     const [isLogged, setIsLogged] = useState<boolean>(false);
     const [error, setError] = useState<DataError | null>(null);
 
     return (
         <GlobalContext.Provider
-            value={{movies, setMovies, isLogged, setIsLogged, setError, error, favouriteMovies, setFavouriteMovies}}>
+            value={{movies, setMovies, isLogged, setIsLogged, setError, error, bookmarks, setBookmarks}}>
             {children}
         </GlobalContext.Provider>
     )

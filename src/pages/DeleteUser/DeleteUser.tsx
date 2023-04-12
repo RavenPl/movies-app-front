@@ -18,7 +18,7 @@ export const DeleteUser = () => {
 
             try {
                 setLoading(true);
-                const resp = await fetch(`http://localhost:3001/movies/auth/`, {
+                const resp = await fetch(`http://localhost:3001/movies/user/`, {
                     method: "DELETE",
                     credentials: "include"
                 })

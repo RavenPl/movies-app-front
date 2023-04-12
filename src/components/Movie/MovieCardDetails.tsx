@@ -1,11 +1,12 @@
-import {useEffect, useState} from 'react';
+import {useContext, useEffect, useState} from 'react';
 import {MdAddCircleOutline} from "react-icons/md";
 import {FaHeart, FaRegHeart} from "react-icons/fa"
 
-import {movieDetails} from "../../utils/api";
+import {movieDetails} from "../../utils/constants";
 import {MovieDetails} from "../../interfaces";
-import {InfoButton} from "../comon/InfoButton/InfoButton";
+import {InfoButton} from "../common/InfoButton/InfoButton";
 import './MovieCardDetails.css'
+import {GlobalContext} from "../../contexts/GlobalContext";
 
 interface Props {
     selectedMovie: string;
@@ -13,6 +14,8 @@ interface Props {
 }
 
 export const MovieCardDetails = (props: Props) => {
+
+    const {bookmarks, setBookmarks, isLogged} = useContext(GlobalContext);
 
     const {selectedMovie} = props;
     const [movie, setMovie] = useState<MovieDetails | null>(null);
@@ -25,13 +28,51 @@ export const MovieCardDetails = (props: Props) => {
         setMovie(data);
     }
 
-    const favouriteHandler = () => {
-        setFavourite(!favourite);
+    const isFavourite = async () => {
+        const found = bookmarks.some(obj => obj.movieId === selectedMovie);
+        console.log(found, "jest!");
+        setFavourite(found);
+    }
+
+    const favouriteHandler = async () => {
+
+        if (!favourite) {
+            bookmarks.push({movieId: selectedMovie, isFavourite: true});
+            setBookmarks([...bookmarks]);
+            setFavourite(true);
+            await fetch("http://localhost:3001/movies/user/bookmarks", {
+                method: "POST",
+                credentials: "include",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    movieId: selectedMovie, isFavourite: true
+                })
+            })
+        } else {
+            const filtered = bookmarks.filter(obj => obj.movieId !== selectedMovie);
+            setBookmarks([...filtered]);
+            setFavourite(false);
+
+            await fetch("http://localhost:3001/movies/user/bookmarks", {
+                method: "DELETE",
+                credentials: "include",
+                headers: {
+                    "content-type": "application/json",
+                },
+                body: JSON.stringify({
+                    movieId: selectedMovie, isFavourite: true
+                })
+            });
+        }
+
     }
 
     useEffect(() => {
-        getMovieDetails()
-    }, [selectedMovie])
+        getMovieDetails();
+        isFavourite();
+    }, [selectedMovie, favourite])
 
     return (
 
@@ -72,11 +113,15 @@ export const MovieCardDetails = (props: Props) => {
                 <div className="movie_icons_container">
                     <div className="movie_details_icon ">
 
-                        {
-                            favourite
-                                ? <FaHeart size="100%" className="favourite" onClick={favouriteHandler}/>
-                                : <FaRegHeart size="100%" className="not-favourite" onClick={favouriteHandler}/>
-                        }
+                        <>
+                            {
+                                isLogged
+                                    ? (favourite ?
+                                    <FaHeart size="100%" className="favourite" onClick={favouriteHandler}/>
+                                    : <FaRegHeart size="100%" className="not-favourite" onClick={favouriteHandler}/>)
+                                    : null
+                            }
+                        </>
                     </div>
                     <div className="movie_details_icon" onClick={() => props.onMovieSelect("")}>
                         <MdAddCircleOutline size="100%"/>
