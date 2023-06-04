@@ -5,6 +5,7 @@ import {Spinner} from "../../components/common/Spinner/Spinner";
 import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
 import {DataError} from "../../interfaces";
 import "./RegisterForm.css";
+import {apiURL} from "../../utils/constants";
 
 export const RegisterForm = () => {
 
@@ -26,7 +27,7 @@ export const RegisterForm = () => {
         setLoading(true);
         setError(null);
         try {
-            const resp = await fetch(`http://localhost:3001/movies/auth/register`, {
+            const resp = await fetch(`${apiURL}/auth/register`, {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'

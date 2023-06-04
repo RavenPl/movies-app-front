@@ -8,6 +8,7 @@ import {Header} from "./Header/Header";
 import {LoggedHeader} from "./LoggedHeader/LoggedHeader";
 import {ErrorInfo} from "../components/common/ErrorInfo";
 import {Spinner} from "../components/common/Spinner/Spinner";
+import {apiURL} from "../utils/constants";
 
 export const RootLayout = () => {
 
@@ -22,7 +23,7 @@ export const RootLayout = () => {
             setLoading(true);
             setError(null);
             try {
-                const resp = await fetch(`http://localhost:3001/movies/auth/test`, {
+                const resp = await fetch(`${apiURL}/auth/test`, {
                     credentials: "include",
                 });
                 const data = await resp.json();

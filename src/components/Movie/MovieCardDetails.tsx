@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from 'react';
 import {MdAddCircleOutline} from "react-icons/md";
 import {FaHeart, FaRegHeart} from "react-icons/fa"
 
-import {movieDetails} from "../../utils/constants";
+import {apiURL, movieDetails} from "../../utils/constants";
 import {MovieDetails} from "../../interfaces";
 import {InfoButton} from "../common/InfoButton/InfoButton";
 import {GlobalContext} from "../../contexts/GlobalContext";
@@ -39,7 +39,7 @@ export const MovieCardDetails = (props: Props) => {
             bookmarks.push({movieId: selectedMovie, isFavourite: true});
             setBookmarks([...bookmarks]);
             setFavourite(true);
-            await fetch("http://localhost:3001/movies/user/bookmarks", {
+            await fetch(`${apiURL}/user/bookmarks`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
@@ -54,7 +54,7 @@ export const MovieCardDetails = (props: Props) => {
             setBookmarks([...filtered]);
             setFavourite(false);
 
-            await fetch("http://localhost:3001/movies/user/bookmarks", {
+            await fetch(`${apiURL}/user/bookmarks`, {
                 method: "DELETE",
                 credentials: "include",
                 headers: {

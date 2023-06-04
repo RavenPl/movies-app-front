@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from 'react';
 
 import {SingleBookmark} from "./SingleBookmark/SingleBookmark";
 import {GlobalContext} from "../../contexts/GlobalContext";
-import {movieDetails} from "../../utils/constants";
+import {apiURL, movieDetails} from "../../utils/constants";
 import {MovieDetails} from "../../interfaces";
 
 export const Bookmarks = () => {
@@ -11,7 +11,7 @@ export const Bookmarks = () => {
     const [bookmarkDetails, setBookmarkDetails] = useState<MovieDetails[]>([]);
 
     const bookmarkRefresh = async () => {
-        const resp = await fetch("http://localhost:3001/movies/user/bookmarks", {
+        const resp = await fetch(`${apiURL}/user/bookmarks`, {
             credentials: "include"
         });
         const data = await resp.json();
@@ -27,7 +27,6 @@ export const Bookmarks = () => {
             bookmarkDetails.push(movie)
             setBookmarkDetails([...bookmarkDetails]);
         })
-
     }, [])
 
 

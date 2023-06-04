@@ -6,6 +6,7 @@ import {ErrorInfo} from "../../components/common/ErrorInfo";
 import {LogoutUserInfo} from "./LogoutUserInfo";
 import {Spinner} from "../../components/common/Spinner/Spinner";
 import {DataError} from "../../interfaces";
+import {apiURL} from "../../utils/constants";
 
 export const LogoutUser = () => {
 
@@ -18,7 +19,7 @@ export const LogoutUser = () => {
         try {
             setError(null);
             setLoading(true);
-            const resp = await fetch(`http://localhost:3001/movies/user/logout`, {
+            const resp = await fetch(`${apiURL}/user/logout`, {
                 credentials: "include",
             });
             const data = await resp.json();

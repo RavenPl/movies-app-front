@@ -6,6 +6,7 @@ import {DeleteUserInfo} from "./DeleteUserInfo/DeleteUserInfo";
 import {Spinner} from "../../components/common/Spinner/Spinner";
 import {ErrorInfo} from "../../components/common/ErrorInfo";
 import {DataError} from "../../interfaces";
+import {apiURL} from "../../utils/constants";
 
 export const DeleteUser = () => {
 
@@ -18,7 +19,7 @@ export const DeleteUser = () => {
 
             try {
                 setLoading(true);
-                const resp = await fetch(`http://localhost:3001/movies/user/`, {
+                const resp = await fetch(`${apiURL}/user/`, {
                     method: "DELETE",
                     credentials: "include"
                 })

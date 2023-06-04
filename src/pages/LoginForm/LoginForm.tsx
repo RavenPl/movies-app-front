@@ -5,6 +5,7 @@ import {GlobalContext} from "../../contexts/GlobalContext";
 import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
 import {Spinner} from "../../components/common/Spinner/Spinner";
 import {DataError} from "../../interfaces";
+import {apiURL} from "../../utils/constants";
 
 export const LoginForm = () => {
 
@@ -34,7 +35,7 @@ export const LoginForm = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const resp = await fetch(`http://localhost:3001/movies/auth/login`, {
+            const resp = await fetch(`${apiURL}/auth/login`, {
                 method: "POST",
                 credentials: "include",
                 headers: {
