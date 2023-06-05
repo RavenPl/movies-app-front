@@ -21,7 +21,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
-    "build:win": "",
+    "build:win": "env-cmd -f .env.local react-scripts build && react-app-rewired start",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
