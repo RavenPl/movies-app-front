@@ -1,50 +1,71 @@
-import {createContext, Dispatch, ReactNode, SetStateAction, useState} from "react";
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useState,
+} from "react";
 
-import {Bookmarks, DataError, Movie} from "../interfaces";
+import { Bookmark, DataError, Movie, MovieDetails } from "../interfaces";
 
 export interface GlobalContextInterface {
-    movies: Movie[];
-    setMovies: Dispatch<SetStateAction<Movie[]>>;
-    isLogged: boolean;
-    setIsLogged: Dispatch<SetStateAction<boolean>>;
-    error: DataError | null;
-    setError: Dispatch<SetStateAction<DataError | null>>;
-    bookmarks: Bookmarks[];
-    setBookmarks: Dispatch<SetStateAction<Bookmarks[]>>;
+  movies: Movie[];
+  setMovies: Dispatch<SetStateAction<Movie[]>>;
+  isLogged: boolean;
+  setIsLogged: Dispatch<SetStateAction<boolean>>;
+  error: DataError | null;
+  setError: Dispatch<SetStateAction<DataError | null>>;
+  bookmarks: Bookmark[];
+  setBookmarks: Dispatch<SetStateAction<Bookmark[]>>;
+  bookmarksWithDetails: MovieDetails[];
+  setBookmarksWithDetails: Dispatch<SetStateAction<MovieDetails[]>>;
 }
 
 const defaultState = {
-    movies: [],
-    setMovies: () => {
-    },
-    isLogged: false,
-    setIsLogged: () => {
-    },
-    error: null,
-    setError: () => {
-    },
-    bookmarks: [],
-    setBookmarks: () => {
-    }
+  movies: [],
+  setMovies: () => {},
+  isLogged: false,
+  setIsLogged: () => {},
+  error: null,
+  setError: () => {},
+  bookmarks: [],
+  setBookmarks: () => {},
+  bookmarksWithDetails: [],
+  setBookmarksWithDetails: () => {},
 } as GlobalContextInterface;
 
-export const GlobalContext = createContext<GlobalContextInterface>(defaultState);
+export const GlobalContext =
+  createContext<GlobalContextInterface>(defaultState);
 
 type GlobalProviderProps = {
-    children: ReactNode;
-}
+  children: ReactNode;
+};
 
-export const GlobalProvider = ({children}: GlobalProviderProps) => {
+export const GlobalProvider = ({ children }: GlobalProviderProps) => {
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+  const [bookmarksWithDetails, setBookmarksWithDetails] = useState<
+    MovieDetails[]
+  >([]);
+  const [isLogged, setIsLogged] = useState<boolean>(false);
+  const [error, setError] = useState<DataError | null>(null);
 
-    const [movies, setMovies] = useState<Movie[]>([]);
-    const [bookmarks, setBookmarks] = useState<Bookmarks[]>([]);
-    const [isLogged, setIsLogged] = useState<boolean>(false);
-    const [error, setError] = useState<DataError | null>(null);
-
-    return (
-        <GlobalContext.Provider
-            value={{movies, setMovies, isLogged, setIsLogged, setError, error, bookmarks, setBookmarks}}>
-            {children}
-        </GlobalContext.Provider>
-    )
-}
+  return (
+    <GlobalContext.Provider
+      value={{
+        movies,
+        setMovies,
+        isLogged,
+        setIsLogged,
+        setError,
+        error,
+        bookmarks,
+        setBookmarks,
+        bookmarksWithDetails,
+        setBookmarksWithDetails,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
+};

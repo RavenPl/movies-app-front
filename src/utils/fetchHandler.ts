@@ -1,10 +1,9 @@
 import { Form, HttPMethods } from "src/interfaces";
 
-export const fetchMovieCardDetails = async (
+export const fetchBookmarks = async (
   path: string,
   method: HttPMethods,
-  selectedMovie: string,
-  isFavourite: boolean
+  selectedMovie: string
 ) => {
   await fetch(path, {
     method: method,
@@ -14,7 +13,7 @@ export const fetchMovieCardDetails = async (
     },
     body: JSON.stringify({
       movieId: selectedMovie,
-      isFavourite,
+      isFavourite: true,
     }),
   });
 };

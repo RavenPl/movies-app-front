@@ -6,7 +6,7 @@ import { apiURL, movieDetails } from "../../utils/constants";
 import { HttPMethods, MovieDetails } from "../../interfaces";
 import { InfoButton } from "../common/InfoButton/InfoButton";
 import { GlobalContext } from "../../contexts/GlobalContext";
-import { fetchMovieCardDetails } from "../../utils/fetchHandler";
+import { fetchBookmarks } from "../../utils/fetchHandler";
 import "./MovieCardDetails.css";
 
 interface Props {
@@ -38,22 +38,20 @@ export const MovieCardDetails = (props: Props) => {
       setBookmarks([...bookmarks]);
       setFavourite(true);
 
-      await fetchMovieCardDetails(
+      await fetchBookmarks(
         `${apiURL}/user/bookmarks`,
         HttPMethods.POST,
-        selectedMovie,
-        true
+        selectedMovie
       );
     } else {
       const filtered = bookmarks.filter((obj) => obj.movieId !== selectedMovie);
       setBookmarks([...filtered]);
       setFavourite(false);
 
-      await fetchMovieCardDetails(
+      await fetchBookmarks(
         `${apiURL}/user/bookmarks`,
         HttPMethods.DELETE,
-        selectedMovie,
-        true
+        selectedMovie
       );
     }
   };

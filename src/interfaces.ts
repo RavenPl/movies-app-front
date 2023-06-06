@@ -26,7 +26,7 @@ export interface MovieDetails {
   imdbVotes: string;
 }
 
-export interface Bookmarks {
+export interface Bookmark {
   movieId: string;
   isFavourite: boolean;
 }
