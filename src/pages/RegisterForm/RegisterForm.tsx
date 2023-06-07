@@ -1,11 +1,11 @@
-import { FormEvent, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import {FormEvent, useEffect, useState} from "react";
+import {Navigate} from "react-router-dom";
 
-import { Spinner } from "../../components/common/Spinner/Spinner";
-import { FormValidationErrorMessage } from "../../components/common/FormValidationErrorMessage";
-import { DataError, HttPMethods } from "../../interfaces";
-import { apiURL } from "../../utils/constants";
-import { fetchForm } from "../../utils/fetchHandler";
+import {apiURL} from "../../utils/constants";
+import {Spinner} from "../../components/common/Spinner/Spinner";
+import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
+import {fetchForm} from "../../utils/fetchHandler";
+import {DataError, HttPMethods} from "../../interfaces";
 import "./RegisterForm.css";
 
 export const RegisterForm = () => {

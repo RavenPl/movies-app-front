@@ -2,11 +2,11 @@ import React, {useContext, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 
 import {GlobalContext} from "../../contexts/GlobalContext";
+import {apiURL} from "../../utils/constants";
 import {ErrorInfo} from "../../components/common/ErrorInfo";
 import {LogoutUserInfo} from "./LogoutUserInfo";
 import {Spinner} from "../../components/common/Spinner/Spinner";
 import {DataError} from "../../interfaces";
-import {apiURL} from "../../utils/constants";
 
 export const LogoutUser = () => {
 
@@ -44,7 +44,6 @@ export const LogoutUser = () => {
     if (loading) {
         return <Spinner/>
     }
-
 
     if (!isLogged) {
         return <Navigate to="/movies"/>

@@ -1,15 +1,15 @@
-import { FormEvent, useContext, useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import {FormEvent, useContext, useEffect, useState} from "react";
+import {Navigate} from "react-router-dom";
 
-import { GlobalContext } from "../../contexts/GlobalContext";
-import { FormValidationErrorMessage } from "../../components/common/FormValidationErrorMessage";
-import { Spinner } from "../../components/common/Spinner/Spinner";
-import { DataError, HttPMethods } from "../../interfaces";
-import { apiURL } from "../../utils/constants";
-import { fetchForm } from "../../utils/fetchHandler";
+import {GlobalContext} from "../../contexts/GlobalContext";
+import {apiURL} from "../../utils/constants";
+import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
+import {Spinner} from "../../components/common/Spinner/Spinner";
+import {fetchForm} from "../../utils/fetchHandler";
+import {DataError, HttPMethods} from "../../interfaces";
 
 export const LoginForm = () => {
-  const { isLogged, setIsLogged, setBookmarks } = useContext(GlobalContext);
+  const {isLogged, setIsLogged, setBookmarks} = useContext(GlobalContext);
   const [error, setError] = useState<null | DataError>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [errorDisplay, setErrorDisplay] = useState<string>("");
@@ -41,7 +41,6 @@ export const LoginForm = () => {
         form
       );
       const data = await resp.json();
-
       const { favouriteMovies } = data;
 
       if ([400, 401, 500].includes(resp.status)) {
@@ -57,6 +56,7 @@ export const LoginForm = () => {
       setIsLogged(true);
       setLoading(false);
     } catch (e: any) {
+
       console.log(e.message);
       setError((prev) => ({
         ...prev,
