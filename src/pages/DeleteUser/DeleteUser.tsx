@@ -17,15 +17,15 @@ export const DeleteUser = () => {
 
     const deleteUser = async () => {
 
-            try {
-                setLoading(true);
-                const resp = await fetch(`${apiURL}/user/`, {
-                    method: "DELETE",
-                    credentials: "include"
-                })
-                const data = await resp.json();
+        try {
+            setLoading(true);
+            const resp = await fetch(`${apiURL}/user/`, {
+                method: "DELETE",
+                credentials: "include"
+            })
+            const data = await resp.json();
 
-                if ([400, 401, 500].includes(resp.status)) {
+            if ([400, 401, 500].includes(resp.status)) {
 
                     setError(prev => ({
                         ...prev,

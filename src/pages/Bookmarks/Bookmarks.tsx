@@ -4,15 +4,15 @@ import {GlobalContext} from "../../contexts/GlobalContext";
 import {SingleBookmark} from "./SingleBookmark/SingleBookmark";
 
 export const Bookmarks = () => {
-  const {bookmarks} = useContext(GlobalContext);
+    const {bookmarks} = useContext(GlobalContext);
 
-  useEffect(() => {
-  }, [bookmarks])
-  return (
-      <>
-        {bookmarks.map((obj) => (
-            <SingleBookmark key={obj.movieId} bookmarkedMovie={obj}/>
-        ))}
-    </>
-  );
+    useEffect(() => {
+    }, [bookmarks])
+    return (
+        <>
+            {bookmarks.map((obj) => (
+                <SingleBookmark key={obj.movieId} bookmarkedMovie={obj}/>
+            ))}
+        </>
+    );
 };
