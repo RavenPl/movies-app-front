@@ -15,8 +15,6 @@
     * [Tech Stack](#space_invader-tech-stack)
     * [Features](#dart-features)
     * [Environment Variables](#key-environment-variables)
-- [Getting Started](#toolbox-getting-started)
-    * [Prerequisites](#heavy_exclamation_mark-prerequisites)
     * [Run Locally](#running-run-locally)
 - [Usage](#eyes-usage)
 - [Bugs](#hammer_and_wrench-project-status)
@@ -80,39 +78,6 @@
 
 <br/>
 
-# :toolbox: Getting Started
-
-### :key: Environment Variables
-
-In order to run this app you need to create config.ts and place it in config folder. File should contain following
-fields with your correct data, for instance:
-
-```json  
-const config = {  
-    dbHost: 'localhost',  
-    dbUser: 'user',  
-    dbDatabase: 'databaseName',
-    dbPassword: "",
-    corsOrigin: 'http://localhost:3000',  
-}
-```
-
-Also you need to have your own ApiKey to be able to make requests. You can get it from www.omdbapi.com.
-Once you got it create a .env.local file in your root, and add it to REACT_APP_API_KEY property, for instance:
-REACT_APP_API_KEY = "your own api key"
-
-<!-- Prerequisites -->  
-
-### :heavy_exclamation_mark: Prerequisites
-
-This project uses npm as package manager
-
-```bash  
- npm install --global npm  
-```  
-
-<br/>
-
 <!-- Run Locally -->  
 
 # :running: Run Locally
@@ -126,13 +91,21 @@ Clone the project
 Go to the project directory
 
 ```bash  
- cd movies-app-back 
+ cd movies-app-front 
 ```  
 
 Install dependencies
 
 ```bash  
  npm install  
+```  
+
+Create .env.local file
+
+```bash  
+You need to have your own ApiKey to be able to make requests. You can get it from www.omdbapi.com.
+Once you got it, create a .env.local file in your root, and add it to REACT_APP_API_KEY property, for instance:
+REACT_APP_API_KEY = "your own api key"
 ```  
 
 Start the server
