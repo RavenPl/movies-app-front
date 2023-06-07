@@ -44,7 +44,7 @@ export const LoginForm = () => {
             const {favouriteMovies} = data;
 
             if ([400, 401, 500].includes(resp.status)) {
-                setError((prev) => ({
+                setError(prev => ({
                     ...prev,
                     code: resp.status,
                     message: data.message,
