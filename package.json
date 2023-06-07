@@ -20,8 +20,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build:win": "env-cmd -f .env.local react-scripts build && react-app-rewired start",
+    "start": "env-cmd -f .env.local react-scripts start && react-app-rewired start",
+    "build:prod": "env-cmd -f .env.prod react-scripts build && react-app-rewired start",
+    "build:local": "env-cmd -f .env.local react-scripts build && react-app-rewired start",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },

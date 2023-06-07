@@ -1,16 +1,18 @@
-import React, { useContext } from "react";
+import React, {useContext, useEffect} from "react";
 
-import { SingleBookmark } from "./SingleBookmark/SingleBookmark";
-import { GlobalContext } from "../../contexts/GlobalContext";
+import {GlobalContext} from "../../contexts/GlobalContext";
+import {SingleBookmark} from "./SingleBookmark/SingleBookmark";
 
 export const Bookmarks = () => {
-  const { bookmarks } = useContext(GlobalContext);
+  const {bookmarks} = useContext(GlobalContext);
 
+  useEffect(() => {
+  }, [bookmarks])
   return (
-    <>
-      {bookmarks.map((obj) => (
-        <SingleBookmark key={obj.movieId} bookmarkedMovie={obj} />
-      ))}
+      <>
+        {bookmarks.map((obj) => (
+            <SingleBookmark key={obj.movieId} bookmarkedMovie={obj}/>
+        ))}
     </>
   );
 };

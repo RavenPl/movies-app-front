@@ -2,11 +2,11 @@ import React, {useContext, useState} from 'react';
 import {Navigate} from "react-router-dom";
 
 import {GlobalContext} from "../../contexts/GlobalContext";
+import {apiURL} from "../../utils/constants";
 import {DeleteUserInfo} from "./DeleteUserInfo/DeleteUserInfo";
 import {Spinner} from "../../components/common/Spinner/Spinner";
 import {ErrorInfo} from "../../components/common/ErrorInfo";
 import {DataError} from "../../interfaces";
-import {apiURL} from "../../utils/constants";
 
 export const DeleteUser = () => {
 

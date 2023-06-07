@@ -10,7 +10,7 @@ export const SearchBox = () => {
     const [search, setSearch] = useState<string>("");
 
     const searchHandler = async (e: any) => {
-        e.preventDefault()
+        e.preventDefault();
         const resp = await fetch(`${movieSearch}${search}`);
         const data = await resp.json();
 
