@@ -1,5 +1,3 @@
-import React from 'react';
-
 import "./DeleteUserInfo.css";
 
 interface Props {

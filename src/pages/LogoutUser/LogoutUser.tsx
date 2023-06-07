@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 
 import {GlobalContext} from "../../contexts/GlobalContext";
+import {apiURL} from "../../utils/constants";
 import {ErrorInfo} from "../../components/common/ErrorInfo";
 import {LogoutUserInfo} from "./LogoutUserInfo";
 import {Spinner} from "../../components/common/Spinner/Spinner";
@@ -18,7 +19,7 @@ export const LogoutUser = () => {
         try {
             setError(null);
             setLoading(true);
-            const resp = await fetch(`http://localhost:3001/movies/user/logout`, {
+            const resp = await fetch(`${apiURL}/user/logout`, {
                 credentials: "include",
             });
             const data = await resp.json();
@@ -43,7 +44,6 @@ export const LogoutUser = () => {
     if (loading) {
         return <Spinner/>
     }
-
 
     if (!isLogged) {
         return <Navigate to="/movies"/>

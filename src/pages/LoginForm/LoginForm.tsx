@@ -1,13 +1,14 @@
-import {FormEvent, useContext, useEffect, useState} from 'react';
+import {FormEvent, useContext, useEffect, useState} from "react";
 import {Navigate} from "react-router-dom";
 
 import {GlobalContext} from "../../contexts/GlobalContext";
+import {apiURL} from "../../utils/constants";
 import {FormValidationErrorMessage} from "../../components/common/FormValidationErrorMessage";
 import {Spinner} from "../../components/common/Spinner/Spinner";
-import {DataError} from "../../interfaces";
+import {fetchForm} from "../../utils/fetchHandler";
+import {DataError, HttPMethods} from "../../interfaces";
 
 export const LoginForm = () => {
-
     const {isLogged, setIsLogged, setBookmarks} = useContext(GlobalContext);
     const [error, setError] = useState<null | DataError>(null);
     const [loading, setLoading] = useState<boolean>(false);
@@ -15,34 +16,30 @@ export const LoginForm = () => {
 
     const [form, setForm] = useState({
         email: "",
-        password: ""
+        password: "",
     });
 
     useEffect(() => {
-
         setErrorDisplay("block");
-    }, [error])
+    }, [error]);
 
     const updateForm = (key: string, value: any) => {
-        setForm(form => ({
+        setForm((form) => ({
             ...form,
-            [key]: value
+            [key]: value,
         }));
     };
 
     const formHandler = async (e: FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        try {
-            const resp = await fetch(`http://localhost:3001/movies/auth/login`, {
-                method: "POST",
-                credentials: "include",
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(form)
-            });
 
+        try {
+            const resp = await fetchForm(
+                `${apiURL}/auth/login`,
+                HttPMethods.POST,
+                form
+            );
             const data = await resp.json();
             const {favouriteMovies} = data;
 
@@ -58,27 +55,37 @@ export const LoginForm = () => {
             setBookmarks([...favouriteMovies]);
             setIsLogged(true);
             setLoading(false);
-
         } catch (e: any) {
+
             console.log(e.message);
-            setError(prev => ({...prev, code: 500, message: "Sorry, try again later!"}));
+            setError((prev) => ({
+                ...prev,
+                code: 500,
+                message: "Sorry, try again later!",
+            }));
             setLoading(false);
         }
-    }
+    };
 
     if (loading) {
-        return <Spinner/>
+        return <Spinner/>;
     }
 
     if (isLogged) {
-        return <Navigate to={"/movies"}/>
+        return <Navigate to={"/movies"}/>;
     }
 
-    return (<>
+    return (
+        <>
             <div className="form_container">
                 <form method="POST" onSubmit={formHandler} className="form_wrapper">
                     <h3>Login!</h3>
-                    {error && <FormValidationErrorMessage message={error.message} display={errorDisplay}/>}
+                    {error && (
+                        <FormValidationErrorMessage
+                            message={error.message}
+                            display={errorDisplay}
+                        />
+                    )}
                     <label>
                         <span>Email</span>
                         <input
@@ -86,7 +93,7 @@ export const LoginForm = () => {
                             name="email"
                             value={form.email}
                             onInput={() => setErrorDisplay("none")}
-                            onChange={e => updateForm(e.target.name, e.target.value)}
+                            onChange={(e) => updateForm(e.target.name, e.target.value)}
                         />
                     </label>
                     <label>
@@ -96,7 +103,7 @@ export const LoginForm = () => {
                             name="password"
                             value={form.password}
                             onInput={() => setErrorDisplay("none")}
-                            onChange={e => updateForm(e.target.name, e.target.value)}
+                            onChange={(e) => updateForm(e.target.name, e.target.value)}
                         />
                     </label>
                     <button>Submit</button>

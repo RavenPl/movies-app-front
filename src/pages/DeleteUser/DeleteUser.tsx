@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import {Navigate} from "react-router-dom";
 
 import {GlobalContext} from "../../contexts/GlobalContext";
+import {apiURL} from "../../utils/constants";
 import {DeleteUserInfo} from "./DeleteUserInfo/DeleteUserInfo";
 import {Spinner} from "../../components/common/Spinner/Spinner";
 import {ErrorInfo} from "../../components/common/ErrorInfo";
@@ -16,15 +17,15 @@ export const DeleteUser = () => {
 
     const deleteUser = async () => {
 
-            try {
-                setLoading(true);
-                const resp = await fetch(`http://localhost:3001/movies/user/`, {
-                    method: "DELETE",
-                    credentials: "include"
-                })
-                const data = await resp.json();
+        try {
+            setLoading(true);
+            const resp = await fetch(`${apiURL}/user/`, {
+                method: "DELETE",
+                credentials: "include"
+            })
+            const data = await resp.json();
 
-                if ([400, 401, 500].includes(resp.status)) {
+            if ([400, 401, 500].includes(resp.status)) {
 
                     setError(prev => ({
                         ...prev,

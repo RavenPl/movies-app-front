@@ -26,7 +26,18 @@ export interface MovieDetails {
     imdbVotes: string;
 }
 
-export interface Bookmarks {
+export interface Bookmark {
     movieId: string;
     isFavourite: boolean;
 }
+
+export enum HttPMethods {
+    DELETE = "delete",
+    GET = "get",
+    POST = "post",
+}
+
+export type Form = {
+    email: string;
+    password: string;
+};

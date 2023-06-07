@@ -1,6 +1,6 @@
 {
   "name": "movies-app-front",
-  "version": "0.1.0",
+  "version": "1.0.3",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -10,6 +10,7 @@
     "@types/node": "^16.18.22",
     "@types/react": "^18.0.31",
     "@types/react-dom": "^18.0.11",
+    "env-cmd": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
@@ -19,8 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build:win": "",
+    "start": "env-cmd -f .env.local react-scripts start && react-app-rewired start",
+    "build:prod": "env-cmd -f .env.prod react-scripts build && react-app-rewired start",
     "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },

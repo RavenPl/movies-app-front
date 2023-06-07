@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider,} from "react-router-dom";
 
 import {RootLayout} from "./layouts/RootLayout";
 import {RegisterForm} from "./pages/RegisterForm/RegisterForm";
@@ -10,7 +10,7 @@ import {LogoutUser} from "./pages/LogoutUser/LogoutUser";
 import {NotFoundView} from "./pages/NotFoundView/NotFoundView";
 import {DeleteUser} from "./pages/DeleteUser/DeleteUser";
 import {Bookmarks} from "./pages/Bookmarks/Bookmarks";
-import './index.css';
+import "./index.css";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -25,17 +25,14 @@ const router = createBrowserRouter(
             <Route path="*" element={<NotFoundView/>}/>
         </>
     )
-    )
-;
-
+);
 const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
+    document.getElementById("root") as HTMLElement
 );
 root.render(
-    // <React.StrictMode>
-    <GlobalProvider>
-        <RouterProvider router={router}/>
-    </GlobalProvider>
-    /*</React.StrictMode>*/
-)
-;
+    <React.StrictMode>
+        <GlobalProvider>
+            <RouterProvider router={router}/>
+        </GlobalProvider>
+    </React.StrictMode>
+);

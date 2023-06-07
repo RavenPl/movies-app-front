@@ -1,6 +1,6 @@
-import {createContext, Dispatch, ReactNode, SetStateAction, useState} from "react";
+import {createContext, Dispatch, ReactNode, SetStateAction, useState,} from "react";
 
-import {Bookmarks, DataError, Movie} from "../interfaces";
+import {Bookmark, DataError, Movie, MovieDetails} from "../interfaces";
 
 export interface GlobalContextInterface {
     movies: Movie[];
@@ -9,8 +9,10 @@ export interface GlobalContextInterface {
     setIsLogged: Dispatch<SetStateAction<boolean>>;
     error: DataError | null;
     setError: Dispatch<SetStateAction<DataError | null>>;
-    bookmarks: Bookmarks[];
-    setBookmarks: Dispatch<SetStateAction<Bookmarks[]>>;
+    bookmarks: Bookmark[];
+    setBookmarks: Dispatch<SetStateAction<Bookmark[]>>;
+    bookmarksWithDetails: MovieDetails[];
+    setBookmarksWithDetails: Dispatch<SetStateAction<MovieDetails[]>>;
 }
 
 const defaultState = {
@@ -25,26 +27,42 @@ const defaultState = {
     },
     bookmarks: [],
     setBookmarks: () => {
-    }
+    },
+    bookmarksWithDetails: [],
+    setBookmarksWithDetails: () => {
+    },
 } as GlobalContextInterface;
 
-export const GlobalContext = createContext<GlobalContextInterface>(defaultState);
+export const GlobalContext =
+    createContext<GlobalContextInterface>(defaultState);
 
 type GlobalProviderProps = {
     children: ReactNode;
-}
+};
 
 export const GlobalProvider = ({children}: GlobalProviderProps) => {
-
     const [movies, setMovies] = useState<Movie[]>([]);
-    const [bookmarks, setBookmarks] = useState<Bookmarks[]>([]);
+    const [bookmarks, setBookmarks] = useState<Bookmark[]>([]);
+    const [bookmarksWithDetails, setBookmarksWithDetails] = useState<MovieDetails[]>([]);
     const [isLogged, setIsLogged] = useState<boolean>(false);
     const [error, setError] = useState<DataError | null>(null);
 
     return (
         <GlobalContext.Provider
-            value={{movies, setMovies, isLogged, setIsLogged, setError, error, bookmarks, setBookmarks}}>
+            value={{
+                movies,
+                setMovies,
+                isLogged,
+                setIsLogged,
+                setError,
+                error,
+                bookmarks,
+                setBookmarks,
+                bookmarksWithDetails,
+                setBookmarksWithDetails,
+            }}
+        >
             {children}
         </GlobalContext.Provider>
-    )
-}
+    );
+};
