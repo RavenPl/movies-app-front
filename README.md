@@ -97,6 +97,10 @@ const config = {
 }
 ```
 
+Also you need to have your own ApiKey to be able to make requests. You can get it from www.omdbapi.com.
+Once you got it create a .env.local file in your root, and add it to REACT_APP_API_KEY property, for instance:
+REACT_APP_API_KEY = "your own api key"
+
 <!-- Prerequisites -->  
 
 ### :heavy_exclamation_mark: Prerequisites
@@ -141,9 +145,7 @@ Start the server
 
 # :eyes: Usage
 
-1. Make sure backend is listening and database is implemented correctly, also please check cors settings in express repository!
-
-2. You can test the app using test user:
+1. You can test the app using test user or create your own account:
  
  ```
  - email: test@test.com
@@ -165,5 +167,5 @@ Start the server
 
 # :hammer_and_wrench: Bugs
   
-1. cant remove bookmark on bookmarks page 
+1. cant remove bookmark on bookmarks page - fixed!
 2. routes logic needs improvement
