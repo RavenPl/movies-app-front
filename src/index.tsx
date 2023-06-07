@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider,} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider,} from "react-router-dom";
 
 import {RootLayout} from "./layouts/RootLayout";
 import {RegisterForm} from "./pages/RegisterForm/RegisterForm";
@@ -15,6 +15,7 @@ import "./index.css";
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
+            <Route path="/" element={<Navigate to="/movies"/>}/>
             <Route path="/movies" element={<RootLayout/>}>
                 <Route path="/movies/bookmarks" element={<Bookmarks/>}/>
                 <Route path="/movies/register" element={<RegisterForm/>}/>
